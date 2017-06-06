@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WakeUP!</title>
+</head>
+<body>
+<div id="RobertClock"></div>
+	<script type="text/javascript">
+		function DisplayTime(){
+			var time = new Date();
+			var h = time.getHours();
+			var m = time.getMinutes();
+			var s = time.getSeconds();		
+		
+			if(h == 0){
+				h = 12;
+			//if h is equal to zero, assign value 12 to h//
+			}
+			if(h > 12){
+				h = h - 12;
+			//if h is greater than 12, subtract 12 from h and assign that value to var h//  
+			}
+			
+			if(h < 10){
+				h = "0" + h;
+				//if h is less than 10, add string "0" before h and assign that value to var h //
+			}
+			if(m < 10){
+				m = "0" + m;
+				// same concept as hours //
+			}
+			if(s < 10)
+				s = "0" + s;
+			//same concept as seconds //
+		var time = h + ":" + m + ":" + s;
+		document.getElementById("RobertClock").innerHTML = time;
+	 // tell the computer where to get info from 
+	}
+
+
+		//SetTimeout(DisplayTime, 1000);//
+
+		setInterval(DisplayTime, 1000); //calls DisplayTime function in one-sec intervals and only after one-sec.  //
+
+	    DisplayTime(); //ONLY DISPLAYS NON-MOVING TIME.... if set by itself with no SetTimeout!!
+	</script>
+</body>
+	
+</html>
